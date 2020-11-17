@@ -6,6 +6,7 @@ from os import path
 import argparse
 import sys
 import signaturizer
+from signaturizer import Signaturizer
 
 def main():
 	parser = argparse.ArgumentParser( description="Run Chemical Checker" )
