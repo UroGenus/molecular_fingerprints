@@ -21,7 +21,7 @@ def main():
 	sign = Signaturizer('GLOBAL')
 	descriptors = sign.predict(smiles)
 	
-	descriptors_df = pd.DataFrame(descriptors)
+	descriptors_df = pd.DataFrame(descriptors.signature, columns = list(range(0, descriptors.signature.shape))
 	descriptors_df.insert(0, 'Drug Name', smiles_df['Drug Name'], True)
 	
 	smiles_df.merge(descriptors_df, on = 'Drug Name')
