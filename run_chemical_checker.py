@@ -24,7 +24,7 @@ def main():
 	descriptors_df = pd.DataFrame(descriptors.signature, columns = list(range(0, descriptors.signature.shape[1])))
 	descriptors_df.insert(0, 'Drug Name', smiles_df['Drug Name'], True)
 	
-	smiles_df.merge(descriptors_df, on = 'Drug Name')
+	smiles_df = smiles_df.merge(descriptors_df, on = 'Drug Name')
 	
 	smiles_df.to_csv(pa.o, sep = '\t', index = False)
 		
