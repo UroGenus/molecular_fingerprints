@@ -1,5 +1,5 @@
-# Molecular fingerprints
-Scripts for generating molecular fingerprints for drugs. Input - drug SMILES.
+# Drug descriptors
+Scripts for generating drug descriptors. Input - drug SMILES.
 
 1. SMILES need to be standartized (salts and other fragments need to be removed).
 
