@@ -12,10 +12,14 @@ def main():
 	parser = argparse.ArgumentParser( description="Run Chemical Checker" )
 	parser.add_argument( "-i", help="Input tsv with with drug SMILES", default = 'drugs_standarised_smiles_curated.tsv')
 	parser.add_argument( "-o", help="Output .tsv file, default stdout", default = sys.stdout)
+	parser.add_argument( "-c", help="Column names provided", default = None)
 	
 	pa = parser.parse_args()
 
-	smiles_df = pd.read_csv(pa.i, delimiter = '\t')
+	if pa.c:
+		smiles_df = pd.read_csv(pa.i, delimiter = '\t')
+	else:
+		smiles_df = pd.read_csv(pa.i, delimiter = '\t', names = ['SMILES', 'Drug Name'])
 	smiles = smiles_df.SMILES.values.tolist()
 	
 	sign = Signaturizer('GLOBAL')
